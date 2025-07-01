@@ -16,13 +16,34 @@ export default async function handler(req, res) {
     console.log('Ebook clicked:', bookId);
     // Increment click count in Supabase
     if (bookId) {
-      const { data, error } = await supabase
+      // Try to fetch as uuid first, if fails, try as integer
+      let ebook, fetchError;
+      // Try as uuid
+      ({ data: ebook, error: fetchError } = await supabase
         .from('ebooks')
-        .update({ click_count: supabase.rpc('increment', { x: 1 }) })
-        .eq('id', bookId);
-      if (error) {
-        console.error('Supabase error:', error);
-        return res.status(500).json({ success: false, error: error.message });
+        .select('click_count')
+        .eq('id', bookId)
+        .single());
+      // If uuid fails, try as integer
+      if (fetchError && fetchError.code === '22P02') {
+        ({ data: ebook, error: fetchError } = await supabase
+          .from('ebooks')
+          .select('click_count')
+          .eq('id', Number(bookId))
+          .single());
+      }
+      if (fetchError) {
+        console.error('Supabase fetch error:', fetchError);
+        return res.status(500).json({ success: false, error: fetchError.message });
+      }
+      // Increment and update
+      const { error: updateError } = await supabase
+        .from('ebooks')
+        .update({ click_count: (ebook.click_count || 0) + 1 })
+        .eq('id', fetchError && fetchError.code === '22P02' ? Number(bookId) : bookId);
+      if (updateError) {
+        console.error('Supabase update error:', updateError);
+        return res.status(500).json({ success: false, error: updateError.message });
       }
     }
     res.status(200).json({ success: true });
