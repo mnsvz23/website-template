@@ -16,14 +16,17 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 
 const ebooks = [
   {
+    id: 'b7e6a1e2-1c2d-4e3a-9f1a-1a2b3c4d5e6f',
     title: 'Savitri Bai, the brave',
     cover: thumb1,
   },
   {
+    id: 'c8f7b2f3-2d3e-5f4a-8e2b-2b3c4d5e6f7a',
     title: 'Savitri Bai, the brave',
     cover: thumb2,
   },
   {
+    id: 'e1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c',
     title: 'Savitri Bai, the brave',
     cover: thumb3,
   },
@@ -72,14 +75,14 @@ function App() {
           {ebooks.map((book, idx) => (
             <motion.div
               className="ebook-card"
-              key={book.title + idx}
+              key={book.id}
               whileHover={{ scale: 1.05, rotate: [0, 2, -2, 0] }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <img src={book.cover} alt={book.title} className="ebook-cover" />
               <div className="ebook-info">
                 <h3>{book.title}</h3>
-                <button className="interested-btn" onClick={() => handleEbookClick(idx)}>
+                <button className="interested-btn" onClick={() => handleEbookClick(book.id)}>
                   Interested to buy
                 </button>
               </div>
