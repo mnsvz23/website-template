@@ -135,7 +135,7 @@ footer {
   }
   .main-container {
     padding: 1rem 0.2rem;
-  }
+}
 }
 
 /* Remove custom GalleryCarousel styles since react-image-gallery is now used */

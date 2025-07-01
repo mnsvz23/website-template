@@ -114,11 +114,11 @@ function App() {
           </a>
           <a href="#" aria-label="YouTube">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#FF0000"/><path d="M16.8 12.001c0-.528-.43-.96-.96-.96H8.16c-.53 0-.96.432-.96.96v.002c0 .528.43.96.96.96h7.68c.53 0 .96-.432.96-.96v-.002z" fill="#fff"/><path d="M10.5 14.5v-5l4 2.5-4 2.5z" fill="#fff"/></svg>
-          </a>
-        </div>
+        </a>
+      </div>
         <p style={{ fontSize: '0.9em', marginTop: '1em' }}>© {new Date().getFullYear()} Kids' Ebook Library</p>
       </footer>
-    </div>
+      </div>
   );
 }
 
