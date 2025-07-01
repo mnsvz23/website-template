@@ -1,0 +1,221 @@
+/* Main container */
+.main-container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 2rem 0 1rem 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #ffb300;
+  margin-bottom: 0.5rem;
+}
+header p {
+  color: #6d4c41;
+  font-size: 1.2rem;
+}
+
+.ebook-list {
+  margin-bottom: 8rem;
+}
+.ebook-list h2, .gallery-section h2 {
+  color: #ffb300;
+  margin-bottom: 1rem;
+}
+.ebooks {
+  display: flex;
+  gap: 2.5rem 5.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.ebook-card {
+  padding: 1rem;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border-radius: 0;
+}
+.ebook-cover {
+  width: 320px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 16px 0 #80301018;
+  transition: box-shadow 0.25s, transform 0.18s;
+}
+.ebook-cover:hover {
+  box-shadow: 0 6px 32px 0 #80301022;
+  transform: scale(1.025);
+}
+.ebook-info h3 {
+  font-size: 1.1rem;
+  margin: 0.2em 0 0.1em 0;
+  color: #6d4c41;
+}
+.ebook-info p {
+  font-size: 0.95rem;
+  color: #a1887f;
+  margin: 0 0 0.5em 0;
+}
+.download-btn {
+  background: #ffb300;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4em 1em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  font-size: 1em;
+}
+.download-btn:hover {
+  background: #ffa000;
+}
+
+.gallery-section {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallery {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.gallery-img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #ffe08255;
+  cursor: pointer;
+  background: #fffde7;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #ffe082;
+  color: #6d4c41;
+  text-align: center;
+}
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}
+.social-links a {
+  text-decoration: none;
+  /* No hover animation */
+  transition: transform 0.2s;
+}
+.social-links a:hover {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+@media (max-width: 600px) {
+  .ebooks, .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-container {
+    padding: 1rem 0.2rem;
+  }
+}
+
+/* Remove custom GalleryCarousel styles since react-image-gallery is now used */
+/*
+.gallery-carousel,
+.gallery-header,
+.gallery-title,
+.gallery-main,
+.main-img-wrapper,
+.main-img,
+.arrow,
+.gallery-thumbs,
+.thumb,
+*/
+
+.main-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.site-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #803112;
+  margin-bottom: 0.3em;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+}
+.site-subheadline {
+  font-size: 1.2rem;
+  color: #6d4c41;
+  margin-bottom: 1em;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-header p {
+  color: #6d4c41;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.site-logo {
+  display: block;
+  margin: 0 auto 1.2rem auto;
+  max-width: 320px;
+  height: auto;
+}
+
+.interested-btn {
+  background: #803010;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.4em;
+  font-weight: 600;
+  font-size: 1em;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background 0.2s;
+}
+.interested-btn:hover {
+  background: #a04020;
+}
+
+.gallery-section > div:first-child {
+  margin-bottom: 3.5rem;
+}
+
+.custom-gallery .image-gallery-icon {
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+}
+
+.custom-gallery .image-gallery-left-nav {
+  left: -32px !important;
+}
+.custom-gallery .image-gallery-right-nav {
+  right: -32px !important;
+}
